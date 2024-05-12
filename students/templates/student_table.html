@@ -10,7 +10,7 @@
     <div class="container">
         {% csrf_token %}
         <h2>Student Table</h2>
-        <a href="./student_form.html" class="btn btn-primary">Add Student</a>
+        <a href="{% url 'add_student' %}" class="btn btn-primary">Add Student</a>
         <table class="table table-striped">
             <thead>
                 <tr>
