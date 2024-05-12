@@ -10,7 +10,7 @@ class Student(models.Model):
         ("BS-IS", "Information Systems"),
         ("BS-IT", "Information Technology"),
     )
-    course = models.CharField(max_length=4)
+    course = models.CharField(max_length=5, choices=COURSES)
     
     GENDER_CHOICES = (
         ('M', 'Male'),

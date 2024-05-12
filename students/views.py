@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import StudentForm
 from .models import Student
@@ -23,7 +23,23 @@ def add_student(request):
     context = {"form": form}
     return render(request, "student_form.html", context)
 
+def edit_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('student_table')
+    else:
+        form = StudentForm(instance=student)
+    return render(request, 'student_edit.html', {'form': form})
+
 def student_table(request):
     students = Student.objects.all()
     context = {'students': students}
     return render(request, 'student_table.html', context)
+
+def delete_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    student.delete()
+    return redirect('student_table')
