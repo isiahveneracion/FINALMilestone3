@@ -11,27 +11,27 @@
     <form class="container" method="POST">
         {% csrf_token %}
         <div>
-            <label for="{{ form.first_name.id_for_label }}"> {{ form.first_name.label }}</label>
+            <label for="id_first_name">First Name</label>
             <br />
             <div>{{ form.first_name }}</div>
         </div>
         <div>
-            <label for="{{ form.last_name.id_for_label }}"> {{ form.last_name.label }}</label>
+            <label for="id_last_name">Last Name</label>
             <br />
             <div>{{ form.last_name }}</div>
         </div>
         <div>
-            <label for="{{ form.course.id_for_label }}"> {{ form.course.label }}</label>
+            <label for="id_course">Course</label>
             <br />
             <div>{{ form.course }}</div>
         </div>
         <div>
-            <label for="{{ form.gender.id_for_label }}"> {{ form.gender.label }}</label>
+            <label>Gender</label>
             <br />
             <div>{{ form.gender }}</div>
         </div>
         <div>
-            <label for="{{ form.age.id_for_label }}"> {{ form.age.label }}</label>
+            <label for="id_age">Age</label>
             <br />
             <div>{{ form.age }}</div>
         </div>
